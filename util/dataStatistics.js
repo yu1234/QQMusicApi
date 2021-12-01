@@ -13,7 +13,7 @@ class DataStatistics {
         this.whiteList = res;
       }, (err) => {
         this.whiteList = {};
-        jsonFile.writeFile('data/whiteList.json', {});
+        //jsonFile.writeFile('data/whiteList.json', {});
       });
 
     // 黑名单
@@ -22,7 +22,7 @@ class DataStatistics {
         this.blackList = res;
       }, (err) => {
         this.blackList = {};
-        jsonFile.writeFile('data/blackList.json', {});
+       // jsonFile.writeFile('data/blackList.json', {});
       });
 
     jsonFile.readFile('data/tempList.json')
@@ -30,7 +30,7 @@ class DataStatistics {
         this.tempList = res;
       }, (err) => {
         this.tempList = {};
-        jsonFile.writeFile('data/tempList.json', {});
+       // jsonFile.writeFile('data/tempList.json', {});
       });
     this.updateTime = moment();
     this.lastSaveTime = moment();
@@ -68,7 +68,7 @@ class DataStatistics {
     const nt = this.updateTime.format('YYYYMMDD');
     const now = moment().valueOf();
     if (lt !== nt) {
-      jsonFile.writeFile(`data/record/${lt}.json`, this.allData[lt] || []);
+   //   jsonFile.writeFile(`data/record/${lt}.json`, this.allData[lt] || []);
       this.safeHead();
       // 每天清一下 tempList
       Object.keys(this.tempList).forEach(k => {
@@ -81,8 +81,8 @@ class DataStatistics {
       delete this.allData[this.earlyCountDate];
       this.earlyCountDate = moment(this.earlyCountDate, 'YYYYMMDD').add(1, 'days').format('YYYYMMDD');
     }
-    jsonFile.writeFile(`data/record/${nt}.json`, this.allData[nt] || []);
-    jsonFile.writeFile('data/tempList.json', this.tempList || {});
+   // jsonFile.writeFile(`data/record/${nt}.json`, this.allData[nt] || []);
+    //jsonFile.writeFile('data/tempList.json', this.tempList || {});
     this.lastSaveTime = moment();
   }
 
@@ -223,8 +223,8 @@ class DataStatistics {
 
   // 黑/白 名单写入json文件
   writeList() {
-    jsonFile.writeFile('data/whiteList.json', this.whiteList);
-    jsonFile.writeFile('data/blackList.json', this.blackList);
+  //  jsonFile.writeFile('data/whiteList.json', this.whiteList);
+   // jsonFile.writeFile('data/blackList.json', this.blackList);
   }
 
   // 返回 黑/白 名单

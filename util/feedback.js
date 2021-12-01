@@ -7,7 +7,7 @@ class Feedback {
         this.data = res;
       }, (err) => {
         this.data = { list: [], updateTime: new Date().getTime() };
-        jsonFile.writeFile('data/feedback.json', this.data);
+        //jsonFile.writeFile('data/feedback.json', this.data);
       });
   }
 
@@ -20,7 +20,7 @@ class Feedback {
   }
 
   write() {
-    jsonFile.writeFile('data/feedback.json', this.data);
+   // jsonFile.writeFile('data/feedback.json', this.data);
   }
 
   delete(id) {
